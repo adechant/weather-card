@@ -347,7 +347,7 @@ class WeatherCard extends LitElement {
   }
 
   _handleClick() {
-    fireEvent(this, "hass-more-info", { entityId: this._config.entity });
+    fireEvent(this, "navigate", { navigation_path: "/lovelace" });
   }
 
   getCardSize() {
