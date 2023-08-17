@@ -355,7 +355,7 @@ class WeatherCard extends LitElement {
         navigation_path: this._config.navigation_path,
         url_path: this._config.url_path,
         data: this._config.data,
-        pipeline_id: this_config.pipeline_id,
+        pipeline_id: this._config.pipeline_id,
       }
     };
 
@@ -380,7 +380,7 @@ class WeatherCard extends LitElement {
         navigation_path: this._config.navigation_path,
         url_path: this._config.url_path,
         data: this._config.data,
-        pipeline_id: this_config.pipeline_id,
+        pipeline_id: this._config.pipeline_id,
       }
     };
     
@@ -405,7 +405,7 @@ class WeatherCard extends LitElement {
         navigation_path: this._config.navigation_path,
         url_path: this._config.url_path,
         data: this._config.data,
-        pipeline_id: this_config.pipeline_id,
+        pipeline_id: this._config.pipeline_id,
       }
     };
     
