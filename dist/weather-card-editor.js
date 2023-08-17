@@ -21,7 +21,7 @@ if (
 const LitElement = customElements.get("hui-masonry-view") ? Object.getPrototypeOf(customElements.get("hui-masonry-view")) : Object.getPrototypeOf(customElements.get("hui-view"));
 const html = LitElement.prototype.html;
 const css = LitElement.prototype.css;
-
+const ACTIONS = ['more-info', 'toggle', 'call-service', 'navigate', 'url', 'assist', 'none'];
 const HELPERS = window.loadCardHelpers();
 
 export class WeatherCardEditor extends LitElement {
@@ -63,6 +63,34 @@ export class WeatherCardEditor extends LitElement {
 
   get _number_of_forecasts() {
     return this._config.number_of_forecasts || 5;
+  }
+
+  get _hold_action() {
+    return this._config.hold_action || none;
+  }
+
+  get _double_tap_action() {
+    return this._config.double_tap_action || none;
+  }
+
+  get _tap_action() {
+    return this._config.tap_action || none;
+  }
+
+  get _navigation_path(){
+    return this._config.navigation_path || none;
+  }
+
+  get _url_path(){
+    return this._config.url_path || none;
+  }
+
+  get _data(){
+    return this._config.data || none;
+  }
+
+  get _pipeline_id(){
+    return this._config.pipeline_id || 'last_used';
   }
 
   firstUpdated() {

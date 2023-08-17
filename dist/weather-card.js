@@ -148,7 +148,7 @@ class WeatherCard extends LitElement {
     }
 
     return html`
-      <ha-card @click="${this._handleClick}">
+      <ha-card @click="${this._handleClick}" @double_click="${this._handleDoubleClick}" @hold="${this._handleHold}">
         ${this._config.current !== false ? this.renderCurrent(stateObj) : ""}
         ${this._config.details !== false ? this.renderDetails(stateObj, lang) : ""}
         ${this._config.forecast !== false
@@ -347,7 +347,78 @@ class WeatherCard extends LitElement {
   }
 
   _handleClick() {
-    fireEvent(this, "hass-more-info", { entityId: this._config.entity });
+    //fireEvent(this, "hass-more-info", { entityId: this._config.entity });
+    const actionConfig = {
+      entity: this._config.entity,
+      tap_action: {
+        action: this._config.tap_action,
+        navigation_path: this._config.navigation_path,
+        url_path: this._config.url_path,
+        data: this._config.data,
+        pipeline_id: this_config.pipeline_id,
+      }
+    };
+
+    const event = new Event("hass-action", {
+      bubbles: true,
+      composed: true,
+    });
+
+    event.detail = {
+      config: actionConfig,
+      action: "tap",
+    };
+    this.dispatchEvent(event);
+  }
+
+  _handleDoubleClick() {
+    //fireEvent(this, "hass-more-info", { entityId: this._config.entity });
+    const actionConfig = {
+      entity: this._config.entity,
+      tap_action: {
+        action: this._config.tap_action,
+        navigation_path: this._config.navigation_path,
+        url_path: this._config.url_path,
+        data: this._config.data,
+        pipeline_id: this_config.pipeline_id,
+      }
+    };
+    
+    const event = new Event("hass-action", {
+      bubbles: true,
+      composed: true,
+    });
+
+    event.detail = {
+      config: actionConfig,
+      action: "double-tap",
+    };
+    this.dispatchEvent(event);
+  }
+
+  _handleHold() {
+    //fireEvent(this, "hass-more-info", { entityId: this._config.entity });
+    const actionConfig = {
+      entity: this._config.entity,
+      tap_action: {
+        action: this._config.tap_action,
+        navigation_path: this._config.navigation_path,
+        url_path: this._config.url_path,
+        data: this._config.data,
+        pipeline_id: this_config.pipeline_id,
+      }
+    };
+    
+    const event = new Event("hass-action", {
+      bubbles: true,
+      composed: true,
+    });
+
+    event.detail = {
+      config: actionConfig,
+      action: "hold",
+    };
+    this.dispatchEvent(event);
   }
 
   getCardSize() {
