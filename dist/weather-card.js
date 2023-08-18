@@ -366,7 +366,7 @@ class WeatherCard extends LitElement {
 
     event.detail = {
       config: actionConfig,
-      action: "double-tap",
+      action: "double",
     };
     this.dispatchEvent(event);
   }
