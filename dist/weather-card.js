@@ -155,9 +155,7 @@ class WeatherCard extends LitElement {
     //@touchcancel=${this.handleRippleDeactivate}
 
     return html`
-      <ha-card 
-      @click="${this._handleClick}
-      >
+      <ha-card @click="${this._handleClick}">
         ${this._config.current !== false ? this.renderCurrent(stateObj) : ""}
         ${this._config.details !== false ? this.renderDetails(stateObj, lang) : ""}
         ${this._config.forecast !== false
