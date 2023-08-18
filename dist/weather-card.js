@@ -364,16 +364,10 @@ class WeatherCard extends LitElement {
   _handleClick() {
     //fireEvent(this, "hass-more-info", { entityId: this._config.entity });
 
-    if(typeof this._config.tap_action  === "undefined") {
-      action = 'more-info';
-    } else {
-      action = this._config.tap_action;
-    }
-
     const actionConfig = {
       entity: this._config.entity,
       tap_action: {
-        action: action,
+        action: this._config.tap_action ? this._config.tap_action : "more-info",
         navigation_path: this._config.navigation_path,
         url_path: this._config.url_path,
         data: this._config.data,
