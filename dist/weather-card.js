@@ -148,7 +148,7 @@ class WeatherCard extends LitElement {
     }
 
     return html`
-      <ha-card @click="${this._handleClick}" ondblclick="${this._handleDoubleClick}">
+      <ha-card @click="${this._handleClick}">
         ${this._config.current !== false ? this.renderCurrent(stateObj) : ""}
         ${this._config.details !== false ? this.renderDetails(stateObj, lang) : ""}
         ${this._config.forecast !== false
@@ -351,31 +351,6 @@ class WeatherCard extends LitElement {
     const actionConfig = {
       entity: this._config.entity,
       tap_action: {
-        action: this._config.tap_action,
-        navigation_path: this._config.navigation_path,
-        url_path: this._config.url_path,
-        data: this._config.data,
-        pipeline_id: this._config.pipeline_id,
-      }
-    };
-
-    const event = new Event("hass-action", {
-      bubbles: true,
-      composed: true,
-    });
-
-    event.detail = {
-      config: actionConfig,
-      action: "tap",
-    };
-    this.dispatchEvent(event);
-  }
-
-  _handleDoubleClick() {
-    //fireEvent(this, "hass-more-info", { entityId: this._config.entity });
-    const actionConfig = {
-      entity: this._config.entity,
-      double_tap_action: {
         action: this._config.double_tap_action,
         navigation_path: this._config.navigation_path,
         url_path: this._config.url_path,
@@ -383,7 +358,7 @@ class WeatherCard extends LitElement {
         pipeline_id: this._config.pipeline_id,
       }
     };
-    
+
     const event = new Event("hass-action", {
       bubbles: true,
       composed: true,
