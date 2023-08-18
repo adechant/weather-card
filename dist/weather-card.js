@@ -108,7 +108,13 @@ class WeatherCard extends LitElement {
     if (!entity) {
       entity = allEntities.find((eid) => eid.split(".")[0] === "weather");
     }
-    return { entity };
+
+    return {
+      type: "weather-forecast",
+      tap_action: "more-info",
+      entity: entity,
+    };
+
   }
 
   setConfig(config) {
