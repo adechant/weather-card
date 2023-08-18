@@ -147,8 +147,17 @@ class WeatherCard extends LitElement {
       `;
     }
 
+    //to implement hold and double-tap, need to handle these events.
+    //@mousedown=${this.handleRippleActivate}
+    //@mouseup=${this.handleRippleDeactivate}
+    //@touchstart=${this.handleRippleActivate}
+    //@touchend=${this.handleRippleDeactivate}
+    //@touchcancel=${this.handleRippleDeactivate}
+
     return html`
-      <ha-card @click="${this._handleClick}">
+      <ha-card 
+      @click="${this._handleClick}
+      >
         ${this._config.current !== false ? this.renderCurrent(stateObj) : ""}
         ${this._config.details !== false ? this.renderDetails(stateObj, lang) : ""}
         ${this._config.forecast !== false
@@ -350,8 +359,8 @@ class WeatherCard extends LitElement {
     //fireEvent(this, "hass-more-info", { entityId: this._config.entity });
     const actionConfig = {
       entity: this._config.entity,
-      hold_action: {
-        action: this._config.double_tap_action,
+      tap_action: {
+        action: this._config.tap_action,
         navigation_path: this._config.navigation_path,
         url_path: this._config.url_path,
         data: this._config.data,
@@ -366,7 +375,7 @@ class WeatherCard extends LitElement {
 
     event.detail = {
       config: actionConfig,
-      action: "hold",
+      action: "tap",
     };
     this.dispatchEvent(event);
   }
