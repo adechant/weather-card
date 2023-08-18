@@ -66,7 +66,7 @@ export class WeatherCardEditor extends LitElement {
   }
 
   get _tap_action() {
-    return this._config.tap_action || none;
+    return this._config.tap_action || 'more-info';
   }
 
   get _navigation_path(){
