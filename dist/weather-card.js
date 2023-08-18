@@ -121,11 +121,11 @@ class WeatherCard extends LitElement {
     if (!config.entity) {
       throw new Error("Please define a weather entity");
     }
-    this._config = config;
 
-    if(typeof this._config.tap_action  === "undefined") {
-      this._config.tap_action = 'more-info'
+    if(typeof config.tap_action  === "undefined") {
+      config.tap_action = 'more-info';
     }
+    this._config = config;
   }
 
   shouldUpdate(changedProps) {
