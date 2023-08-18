@@ -375,8 +375,8 @@ class WeatherCard extends LitElement {
     //fireEvent(this, "hass-more-info", { entityId: this._config.entity });
     const actionConfig = {
       entity: this._config.entity,
-      tap_action: {
-        action: this._config.tap_action,
+      double_tap_action: {
+        action: this._config.double_tap_action,
         navigation_path: this._config.navigation_path,
         url_path: this._config.url_path,
         data: this._config.data,
@@ -401,7 +401,7 @@ class WeatherCard extends LitElement {
     const actionConfig = {
       entity: this._config.entity,
       tap_action: {
-        action: this._config.tap_action,
+        action: this._config.hold_action,
         navigation_path: this._config.navigation_path,
         url_path: this._config.url_path,
         data: this._config.data,
