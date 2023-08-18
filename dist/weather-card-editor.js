@@ -65,8 +65,8 @@ export class WeatherCardEditor extends LitElement {
     return this._config.number_of_forecasts || 5;
   }
 
-  get _double_tap_action() {
-    return this._config.double_tap_action || none;
+  get _hold_action() {
+    return this._config.hold_action || none;
   }
 
   get _tap_action() {
