@@ -91,7 +91,9 @@ function hasConfigOrEntityChanged(element, changedProps) {
 class WeatherCard extends LitElement {
   static get properties() {
     return {
-      _config: {},
+      _config: {
+        tap_action: "more-info",
+      },
       hass: {},
     };
   }
@@ -358,7 +360,7 @@ class WeatherCard extends LitElement {
     const actionConfig = {
       entity: this._config.entity,
       tap_action: {
-        action: this._config.tap_action ? this._config.tap_action : "more-info",
+        action: this._config.tap_action,
         navigation_path: this._config.navigation_path,
         url_path: this._config.url_path,
         data: this._config.data,
